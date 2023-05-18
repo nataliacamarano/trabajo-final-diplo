@@ -9,9 +9,9 @@ const Header = () => {
           <li>
             <a href='/'>Inicio</a>
           </li>
-          <li>
+          {/* <li>
             <a href='/new'>Crear receta</a>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </header>

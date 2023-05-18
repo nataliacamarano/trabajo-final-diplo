@@ -4,13 +4,11 @@
             <h4 class="text-center">Agregar una receta</h4>
             <form action="/admin/recipes/agregar" enctype="multipart/form-data" method="post">
                 <div class="mb-3 row">
-                    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Título" />
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Título" />
                 </div>
+            
                 <div class="mb-3 row">
-                    <input class="form-control" id="subtitulo" name="subtitulo" placeholder="Subtítulo" />
-                </div>
-                <div class="mb-3 row">
-                    <textarea class="form-control" id="cuerpo" name="cuerpo" placeholder="Cuerpo"></textarea>
+                    <textarea class="form-control" id="description" name="description" placeholder="Descripción"></textarea>
                 </div>
                 <div class="mb-3 row">
                     <label for="imagen" class="form-label">Imagen</label>

@@ -12,8 +12,8 @@ router.get("/", async function (req, res, next) {
   recipes = recipes.map(recipe => {
     if (recipe.img_id) {
       const imagen = cloudinary.image(recipe.img_id, {
-        width: 60,
-        height: 60,
+        width: 320,
+        height: 200,
         crop: "fill",
       });
       return {

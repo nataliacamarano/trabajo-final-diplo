@@ -10,18 +10,18 @@ const Main = () => {
     const fetchProducts = async () => {
       console.log('Consultando la api...');
       const { data } = await axios.get(
-        'https://jsonplaceholder.typicode.com/photos',
+        'http://localhost:3000/api',
       );
-      localStorage.setItem('products', JSON.stringify(data));
-      setProducts(data);
+      // localStorage.setItem('products', JSON.stringify(data));
+      setProducts(data.recipes);
     };
-    const productsLocal = JSON.parse(localStorage.getItem('products')) || null;
+    // const productsLocal = JSON.parse(localStorage.getItem('products')) || null;
 
-    if (!productsLocal) {
-      fetchProducts();
-    } else {
-      setProducts(productsLocal);
-    }
+    // if (!productsLocal) {
+       fetchProducts();
+    // } else {
+    //   setProducts(productsLocal);
+    // }
 
     return () => {
       setProducts([]);
@@ -32,13 +32,12 @@ const Main = () => {
     <main>
       <div className='container'>
         {products
-          .filter((product) => product.albumId === 1)
           .map((product) => (
             <Card
               key={product.id}
-              url={product.url}
+              imagen={product.imagen}
               title={product.title}
-              id={product.id}
+              description={product.description}
             />
           ))}
       </div>

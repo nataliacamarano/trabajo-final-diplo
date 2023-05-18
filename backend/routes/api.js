@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var cloudinary = require("cloudinary").v2;
 
 var recipeModel = require('../models/recipeModel');
 
@@ -7,20 +8,20 @@ var recipeModel = require('../models/recipeModel');
 router.get('/', async function(req, res, next) {
     var recipes = await recipeModel.getRecipes();
 
-    recipes = recipes.map(novedad => {
-        if(novedad.img_id){
-            const imagen = cloudinary.url(novedad.img_id, {
+    recipes = recipes.map(recipe => {
+        if(recipe.img_id){
+            const imagen = cloudinary.url(recipe.img_id, {
                 width: 500,
                 height: 300,
                 crop: 'fill'
                 });
                 return {
-                    ...novedad,
+                    ...recipe,
                     imagen
                 }
         }else{
             return {
-                ...novedad,
+                ...recipe,
                 imagen: ''
             }
         }

@@ -1,17 +1,14 @@
 <div class="container">
     <div class="row">
         <div class="col-6 offset-3">
-            <h4 class="text-center">Modificar la novedad</h4>
+            <h4 class="text-center">Modificar la receta</h4>
             <form action="/admin/recipes/modificar" enctype="multipart/form-data" method="post">
-                <input type="hidden" name="id" value="{{novedad.id}}" />
+                <input type="hidden" name="id" value="{{recipe.id}}" />
                 <div class="mb-3 row">
-                    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Título" value="{{novedad.titulo}}" />
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Título" value="{{recipe.title}}" />
                 </div>
                 <div class="mb-3 row">
-                    <input class="form-control" id="subtitulo" name="subtitulo" placeholder="Subtítulo" value="{{novedad.subtitulo}}" />
-                </div>
-                <div class="mb-3 row">
-                    <textarea class="form-control" id="cuerpo" name="cuerpo" placeholder="Cuerpo" rows="10">  {{novedad.cuerpo}}</textarea>
+                    <textarea class="form-control" id="description" name="description" placeholder="Descripción" rows="10">  {{recipe.description}}</textarea>
                 </div>
                 <div class="mb-3 row">
                     <p>
@@ -20,7 +17,7 @@
                     </p>
                     <p>
                         <label><input type="checkbox" name="img_delete" id="img_delete" value="1" /> ¿Eliminar imagen actual?</label>
-                        <input type="hidden" name="img_original" value="{{novedad.img_id}}" />
+                        <input type="hidden" name="img_original" value="{{recipe.img_id}}" />
                     </p>
                 </div>
                 
