@@ -9,19 +9,12 @@ const Main = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       console.log('Consultando la api...');
-      const { data } = await axios.get(
-        'http://localhost:3000/api',
-      );
-      // localStorage.setItem('products', JSON.stringify(data));
+      const { data } = await axios.get('http://localhost:3000/api');
+
       setProducts(data.recipes);
     };
-    // const productsLocal = JSON.parse(localStorage.getItem('products')) || null;
 
-    // if (!productsLocal) {
-       fetchProducts();
-    // } else {
-    //   setProducts(productsLocal);
-    // }
+    fetchProducts();
 
     return () => {
       setProducts([]);
@@ -31,15 +24,14 @@ const Main = () => {
   return (
     <main>
       <div className='container'>
-        {products
-          .map((product) => (
-            <Card
-              key={product.id}
-              imagen={product.imagen}
-              title={product.title}
-              description={product.description}
-            />
-          ))}
+        {products.map((product) => (
+          <Card
+            key={product.id}
+            imagen={product.imagen}
+            title={product.title}
+            description={product.description}
+          />
+        ))}
       </div>
     </main>
   );
