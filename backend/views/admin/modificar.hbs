@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h4 class="text-center">Modificar la novedad</h4>
+            <form action="/admin/recipes/modificar" enctype="multipart/form-data" method="post">
+                <input type="hidden" name="id" value="{{novedad.id}}" />
+                <div class="mb-3 row">
+                    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Título" value="{{novedad.titulo}}" />
+                </div>
+                <div class="mb-3 row">
+                    <input class="form-control" id="subtitulo" name="subtitulo" placeholder="Subtítulo" value="{{novedad.subtitulo}}" />
+                </div>
+                <div class="mb-3 row">
+                    <textarea class="form-control" id="cuerpo" name="cuerpo" placeholder="Cuerpo" rows="10">  {{novedad.cuerpo}}</textarea>
+                </div>
+                <div class="mb-3 row">
+                    <p>
+                        <label for="imagen" class="form-label">Imagen</label>
+                        <input type="file" class="form-control" id="imagen" name="imagen" />
+                    </p>
+                    <p>
+                        <label><input type="checkbox" name="img_delete" id="img_delete" value="1" /> ¿Eliminar imagen actual?</label>
+                        <input type="hidden" name="img_original" value="{{novedad.img_id}}" />
+                    </p>
+                </div>
+                
+                <input type="submit" class="btn btn-primary" value="Modificar" />
+                <a href="/admin/recipes" class="btn btn-secondary">Cancelar</a>
+            </form>
+            {{#if error}}
+            <div class="alert alert-danger mt-3" role="alert">
+                {{message}}
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</div>
